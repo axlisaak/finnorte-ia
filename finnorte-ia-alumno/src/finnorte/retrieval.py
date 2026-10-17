@@ -95,16 +95,15 @@ def fragmentar(doc: Documento, tam: int = 700, solape: int = 1) -> list[Fragment
 
 
 # ───────────────────────────── vectores (A1) ─────────────────────────────
-def normalizar(m: np.ndarray) -> np.ndarray:
-    """Normaliza cada fila a norma 1 (L2). Una fila de ceros se queda en ceros."""
-    # TODO(A1): implementa esta parte (ver docstring y pruebas)
-    raise NotImplementedError("Pendiente: A1")
+def normalizar(m):
+    n = np.linalg.norm(m, axis=1, keepdims=True)
+    return m / np.where(n == 0, 1, n)
 
 
-def coseno(a: np.ndarray, b: np.ndarray) -> float:
-    """Similitud coseno entre dos vectores: (a·b) / (‖a‖‖b‖). Rango [-1, 1]."""
-    # TODO(A1): implementa esta parte (ver docstring y pruebas)
-    raise NotImplementedError("Pendiente: A1")
+def coseno(a, b):
+    a, b = np.asarray(a, float), np.asarray(b, float)
+    na, nb = np.linalg.norm(a), np.linalg.norm(b)
+    return 0.0 if na == 0 or nb == 0 else float(a @ b / (na * nb))
 
 
 # ───────────────────────────── índice ─────────────────────────────
@@ -135,13 +134,11 @@ class Indice:
         np.save(ruta, m)
         return m
 
-    def buscar(self, consulta: str, k: int = 4, umbral: float = 0.0) -> list[Resultado]:
-        """Los k fragmentos más parecidos (coseno) con puntaje ≥ umbral, de mayor a menor."""
-        # TODO(A1): implementa esta parte (ver docstring y pruebas)
-        raise NotImplementedError("Pendiente: A1")
-        trazas.registrar("busqueda", consulta=consulta[:200], k=k, umbral=umbral, modo="vector",
-                         resultados=[(r.fragmento.id, round(r.puntaje, 4)) for r in res])
-        return res
+    def buscar(self, consulta, k=3):
+        q = normalizar(embed([consulta]))[0]
+        s = self.matriz @ q
+        orden = np.argsort(-s)[:k]
+        return [Resultado(self.fragmentos[i], float(s[i])) for i in orden]
 
     def buscar_palabras(self, consulta: str, k: int = 4) -> list[Resultado]:
         """Línea base por palabras clave (BM25). Úsala para comparar contra la búsqueda semántica."""

@@ -26,7 +26,7 @@ from .config import RAIZ
 from .pipeline import Etapa, Pipeline
 from .retrieval import Indice, contexto_para_prompt
 
-VARIANTE = "v?-cambia-esto"          # v1-qa | v2-revisor | v3-soporte | v4-documentador | v5-triage
+VARIANTE = "v5-triage"          # v1-qa | v2-revisor | v3-soporte | v4-documentador | v5-triage
 _INDICE: Indice | None = None
 
 

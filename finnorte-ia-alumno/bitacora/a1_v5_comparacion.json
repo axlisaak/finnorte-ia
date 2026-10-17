@@ -1,0 +1,151 @@
+[
+  {
+    "id": "a01",
+    "pregunta": "La base de datos ya no acepta más clientes y dice que se acabaron los lugares disponibles",
+    "esperado": "rb-03",
+    "vector": [
+      "rb-03",
+      "rb-02",
+      "rb-07"
+    ],
+    "palabras": [
+      "pm-03",
+      "rb-03",
+      "rb-08"
+    ]
+  },
+  {
+    "id": "a02",
+    "pregunta": "Los contenedores se están muriendo solos porque se quedan sin memoria RAM",
+    "esperado": "rb-07",
+    "vector": [
+      "rb-07",
+      "rb-06",
+      "rb-02"
+    ],
+    "palabras": [
+      "rb-07",
+      "rb-02"
+    ]
+  },
+  {
+    "id": "a03",
+    "pregunta": "El enlace con el banco para envíos de dinero interbancarios tarda más de 30 segundos y no responde",
+    "esperado": "rb-05",
+    "vector": [
+      "rb-02",
+      "rb-05",
+      "rb-03"
+    ],
+    "palabras": [
+      "rb-01",
+      "rb-06",
+      "rb-04"
+    ]
+  },
+  {
+    "id": "a04",
+    "pregunta": "Los avisos a los usuarios se quedaron atorados y hay un mensaje que falla una y otra vez",
+    "esperado": "rb-06",
+    "vector": [
+      "rb-06",
+      "rb-03",
+      "rb-05"
+    ],
+    "palabras": [
+      "rb-06",
+      "rb-01",
+      "rb-02"
+    ]
+  },
+  {
+    "id": "a05",
+    "pregunta": "Acabamos de subir una versión nueva hace media hora y empezaron a salir muchos errores 500",
+    "esperado": "rb-08",
+    "vector": [
+      "pm-01",
+      "rb-08",
+      "rb-07"
+    ],
+    "palabras": [
+      "pm-01",
+      "rb-07",
+      "rb-08"
+    ]
+  },
+  {
+    "id": "a06",
+    "pregunta": "Nadie puede entrar a la aplicación ni mandar dinero, ¿en cuántos minutos máximo debemos atenderlo?",
+    "esperado": "rb-01",
+    "vector": [
+      "rb-01",
+      "rb-05",
+      "rb-02"
+    ],
+    "palabras": [
+      "rb-01",
+      "rb-06",
+      "rb-08"
+    ]
+  },
+  {
+    "id": "a07",
+    "pregunta": "¿Qué acciones indica el runbook rb-03 cuando aparece QueuePool limit of size 20 overflow 10 reached?",
+    "esperado": "rb-03",
+    "vector": [
+      "rb-03",
+      "rb-02",
+      "rb-06"
+    ],
+    "palabras": [
+      "rb-03",
+      "rb-02",
+      "pm-01"
+    ]
+  },
+  {
+    "id": "a08",
+    "pregunta": "¿Qué hacer según rb-04 ante el error SSL: CERTIFICATE_VERIFY_FAILED?",
+    "esperado": "rb-04",
+    "vector": [
+      "rb-04",
+      "pm-02",
+      "rb-02"
+    ],
+    "palabras": [
+      "rb-04",
+      "pm-01",
+      "rb-02"
+    ]
+  },
+  {
+    "id": "a09",
+    "pregunta": "¿Cuál fue la causa raíz en el postmortem pm-01 de la versión 4.12 de pagos-api?",
+    "esperado": "pm-01",
+    "vector": [
+      "pm-01",
+      "pm-02",
+      "rb-02"
+    ],
+    "palabras": [
+      "pm-01",
+      "rb-02",
+      "rb-04"
+    ]
+  },
+  {
+    "id": "a10",
+    "pregunta": "¿Qué secciones obligatorias exige la plantilla pm-03 para documentar un incidente?",
+    "esperado": "pm-03",
+    "vector": [
+      "pm-03",
+      "pm-02",
+      "rb-01"
+    ],
+    "palabras": [
+      "pm-03",
+      "rb-04",
+      "rb-02"
+    ]
+  }
+]
