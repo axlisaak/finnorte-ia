@@ -1,0 +1,5 @@
+2026-10-27T18:40:02Z INFO deploy reportes-api version=2.7
+2026-10-27T19:05:44Z WARN k8s pod reportes-api-6c9f restarted reason=OOMKilled restarts=3
+2026-10-27T19:06:10Z WARN k8s pod reportes-api-7a1d restarted reason=OOMKilled restarts=2
+2026-10-27T19:06:12Z ERROR lb upstream reportes-api 502 Bad Gateway count=40/min
+2026-10-27T19:06:30Z INFO reportes-api generando reporte mensual filas=4200000 modo=memoria

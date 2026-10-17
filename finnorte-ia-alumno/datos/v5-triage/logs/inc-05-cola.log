@@ -1,0 +1,5 @@
+2026-10-29T08:00:00Z WARN notificaciones consumer lag=15200 messages
+2026-10-29T08:00:02Z ERROR notificaciones message processing failed, will retry message_id=msg_4410 error=KeyError('telefono')
+2026-10-29T08:00:05Z ERROR notificaciones message processing failed, will retry message_id=msg_4410 error=KeyError('telefono')
+2026-10-29T08:00:09Z ERROR notificaciones message processing failed, will retry message_id=msg_4410 error=KeyError('telefono')
+2026-10-29T08:05:00Z WARN notificaciones.cola.pendientes=16840

@@ -1,0 +1,6 @@
+2026-10-20T13:02:11Z INFO deploy pagos-api version=4.19 strategy=canary pct=100
+2026-10-20T13:18:40Z WARN pagos-api db pool usage=92%
+2026-10-20T13:21:05Z ERROR pagos-api sqlalchemy.exc.TimeoutError: QueuePool limit of size 20 overflow 10 reached, connection timed out
+2026-10-20T13:21:06Z ERROR pagos-api POST /v1/transferencias 500 trace_id=a81f
+2026-10-20T13:21:09Z ERROR pagos-api POST /v1/transferencias 500 trace_id=a822
+2026-10-20T13:22:00Z ALERT transferencias.errores_5xx=27% (umbral 5%)

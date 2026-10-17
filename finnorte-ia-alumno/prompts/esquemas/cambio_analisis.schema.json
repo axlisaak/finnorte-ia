@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "titulo",
+    "componentes",
+    "tipo",
+    "riesgo",
+    "justificacion_riesgo",
+    "preguntas_abiertas"
+  ],
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "minLength": 3
+    },
+    "componentes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "tipo": {
+      "enum": [
+        "funcionalidad",
+        "correccion",
+        "configuracion",
+        "dependencia"
+      ]
+    },
+    "riesgo": {
+      "enum": [
+        "alto",
+        "medio",
+        "bajo"
+      ]
+    },
+    "justificacion_riesgo": {
+      "type": "string",
+      "minLength": 10
+    },
+    "preguntas_abiertas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

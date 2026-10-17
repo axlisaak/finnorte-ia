@@ -1,0 +1,4 @@
+2026-11-02T00:00:03Z ERROR spei-gateway ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1006) host=mtls.spei-proveedor.example
+2026-11-02T00:00:04Z ERROR spei-gateway envio_spei fallo transferencia=trf_77 reintento=1
+2026-11-02T00:00:09Z ERROR spei-gateway envio_spei fallo transferencia=trf_77 reintento=2
+2026-11-02T00:01:00Z ALERT spei.envios_fallidos=100%

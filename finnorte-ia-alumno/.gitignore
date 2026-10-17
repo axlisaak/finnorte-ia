@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+bitacora/emb_*.npy
+.venv/
+.DS_Store

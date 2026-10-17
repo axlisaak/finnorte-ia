@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "titulo",
+    "que_cambia",
+    "impacto_usuario",
+    "fecha_estimada",
+    "contacto"
+  ],
+  "properties": {
+    "titulo": {
+      "type": "string"
+    },
+    "que_cambia": {
+      "type": "string"
+    },
+    "impacto_usuario": {
+      "type": "string"
+    },
+    "fecha_estimada": {
+      "type": "string"
+    },
+    "contacto": {
+      "type": "string"
+    }
+  }
+}

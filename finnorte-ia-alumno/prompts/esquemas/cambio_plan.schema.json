@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "estrategia",
+    "pasos",
+    "reversa",
+    "aprobaciones",
+    "ventana"
+  ],
+  "properties": {
+    "estrategia": {
+      "type": "string"
+    },
+    "pasos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2
+    },
+    "reversa": {
+      "type": "string",
+      "minLength": 10
+    },
+    "aprobaciones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ventana": {
+      "type": "string"
+    }
+  }
+}

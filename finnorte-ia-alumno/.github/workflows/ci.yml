@@ -1,0 +1,48 @@
+# Integración continua (T8, T12): en cada push y PR
+#  1) pruebas unitarias SIN red (proveedor fake): rápidas y gratuitas
+#  2) evaluación contra el contrato de calidad CON el modelo real, si configuraste el secreto
+#     Settings → Secrets and variables → Actions → New repository secret: GEMINI_API_KEY (o GROQ_API_KEY)
+#  Si el contrato no se cumple, el job falla y el PR no debe fusionarse.
+name: ci
+on:
+  push:
+  pull_request:
+
+env:
+  CASOS: evals/comun.jsonl              # tu equipo: evals/<tu variante>.jsonl
+  SISTEMA: ""                           # tu equipo: finnorte.variante:sistema
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip }
+      - run: pip install -r requirements.txt
+      - run: pytest -q
+
+  contrato:
+    needs: pruebas
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11", cache: pip }
+      - run: pip install -r requirements.txt
+      - name: Evaluar contra el contrato de calidad
+        if: env.GEMINI_API_KEY != '' || env.GROQ_API_KEY != ''
+        run: |
+          if [ -n "$GROQ_API_KEY" ] && [ -z "$GEMINI_API_KEY" ]; then export LLM_PROVIDER=groq EMB_PROVIDER=hash; fi
+          ARGS="$CASOS --rep 2 --contrato contrato_calidad.yaml --salida bitacora/eval_ci.json"
+          if [ -n "$SISTEMA" ]; then ARGS="$ARGS --sistema $SISTEMA"; fi
+          PYTHONPATH=src python -m finnorte evaluar $ARGS
+      - name: Aviso sin secreto
+        if: env.GEMINI_API_KEY == '' && env.GROQ_API_KEY == ''
+        run: echo "::warning::Sin secreto de API configurado; se omitió la evaluación contra el contrato."
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: evaluacion, path: bitacora/eval_ci.json, if-no-files-found: ignore }

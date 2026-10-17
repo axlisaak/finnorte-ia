@@ -1,0 +1,5 @@
+2026-10-23T10:14:22Z WARN spei-gateway spei-gateway timeout after 30000ms transferencia=trf_901
+2026-10-23T10:14:55Z WARN spei-gateway spei-gateway timeout after 30000ms transferencia=trf_905
+2026-10-23T10:15:30Z ERROR pagos-api FN-5031 SPEI no disponible temporalmente count=148/min
+2026-10-23T10:16:00Z INFO pagos-api modo_encolado=activo pendientes=212
+2026-10-23T10:16:01Z INFO estado-proveedor spei-proveedor status=degraded
