@@ -1,3 +1,4 @@
+README.md
 pyproject.toml
 src/finnorte/__init__.py
 src/finnorte/__main__.py

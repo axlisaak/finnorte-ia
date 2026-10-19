@@ -81,3 +81,28 @@ En la variante **`v5-triage` (Triage de incidentes)**, los ingenieros de guardia
   - `evals/a1_v5-triage.jsonl` (10 casos de prueba de la variante `v5-triage`).
   - `bitacora/trazas.jsonl` (registro de llamadas y latencias).
 '@ | Set-Content -Path "bitacora/reporte_a1.md" -Encoding UTF8
+
+
+
+
+
+
+# Bitácora de uso de IA (ai_log.md) - Actividad 1
+
+**Fecha:** 18-19 de octubre de 2026
+**Herramienta utilizada:** Google Gemini
+
+## 1. Implementación de funciones vectoriales (`retrieval.py`)
+* **Qué se pidió:** Ayuda para implementar `normalizar`, `coseno` y `buscar` manejando correctamente el vector cero y el producto punto matricial.
+* **Qué se aceptó/cambió:** Se aceptó la lógica matemática con NumPy (`np.linalg.norm`, `@`), asegurando que `buscar` devolviera la lista de objetos `Resultado` requerida por la plantilla.
+* **Cómo se validó:** Se ejecutó `pytest tests/test_a1_vectores.py -q` obteniendo las 4 pruebas en verde.
+
+## 2. Ejercicio de Embeddings Manuales
+* **Qué se pidió:** Código en Python para definir vectores y calcular la similitud coseno de 3 frases relacionadas con triage de incidentes (`v5-triage`).
+* **Qué se aceptó/cambió:** Se aceptaron los vectores de 4 dimensiones. El código se ejecutó en Google Colab en lugar de VS Code para sortear problemas con el *kernel* local de Jupyter.
+* **Cómo se validó:** Se corrió la celda confirmando matemáticamente la similitud entre incidentes del mismo tema (~0.99) frente a temas distintos (~0.02).
+
+## 3. Redacción del Reporte Teórico
+* **Qué se pidió:** Estructurar el análisis sobre el cambio de modelos de palabras a vectores y la reflexión del caso aplicado.
+* **Qué se aceptó/cambió:** Se tomó la síntesis generada sobre componentes (Transformers, autoatención) y se adaptaron los riesgos de la variante (ejecución de runbooks incorrectos).
+* **Cómo se validó:** La reflexión se cuadró directamente con los resultados de `acierto@1` y `acierto@3` que arrojó el script de comparación en la terminal
